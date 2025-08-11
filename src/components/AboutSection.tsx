@@ -34,7 +34,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="section-padding bg-subtle-gradient">\n
+    <section id="about" className="section-padding bg-gradient-section">\n
       <div className="container-luxury">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
