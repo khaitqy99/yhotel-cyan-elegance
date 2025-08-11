@@ -67,7 +67,7 @@ const BookingSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-primary/5 via-secondary/10 to-background">
+    <section className="py-20 bg-section-gradient">
       <div className="container-luxury">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-display font-bold text-gradient mb-6">

@@ -33,7 +33,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="section-padding bg-secondary/30">
+    <section id="contact" className="section-padding bg-subtle-gradient">
       <div className="container-luxury">
         {/* Header */}
         <div className="text-center mb-16">

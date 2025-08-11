@@ -65,7 +65,7 @@ const GallerySection = () => {
   };
 
   return (
-    <section id="gallery" className="py-20 bg-background">
+    <section id="gallery" className="py-20 bg-subtle-gradient">
       <div className="container-luxury">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-display font-bold text-gradient mb-6">

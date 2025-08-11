@@ -45,7 +45,7 @@ const RoomsSection = () => {
   ];
 
   return (
-    <section id="rooms" className="section-padding">
+    <section id="rooms" className="section-padding bg-luxury-gradient">
       <div className="container-luxury">
         {/* Header */}
         <div className="text-center mb-16">
