@@ -1,23 +1,26 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import heroImage from "@/assets/hero-hotel.jpg";
+import luxuryRoomImage from "@/assets/luxury-room.jpg";
+import lobbyImage from "@/assets/lobby.jpg";
 
 const GallerySection = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const galleryImages = [
     {
-      src: "/src/assets/hero-hotel.jpg",
+      src: heroImage,
       alt: "Khách sạn Y Hotel - Mặt tiền",
       category: "Mặt tiền"
     },
     {
-      src: "/src/assets/luxury-room.jpg", 
+      src: luxuryRoomImage, 
       alt: "Phòng nghỉ cao cấp",
       category: "Phòng nghỉ"
     },
     {
-      src: "/src/assets/lobby.jpg",
+      src: lobbyImage,
       alt: "Sảnh khách sạn sang trọng", 
       category: "Sảnh khách"
     },
