@@ -20,6 +20,7 @@ const Navigation = () => {
     { name: "Dịch Vụ", href: "#services" },
     { name: "Thư Viện", href: "#gallery" },
     { name: "Tin Tức", href: "#blog" },
+    { name: "Đặt Phòng", href: "#booking" },
     { name: "Liên Hệ", href: "#contact" },
   ];
 
