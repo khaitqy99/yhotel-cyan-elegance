@@ -136,7 +136,7 @@ const HeroSection = () => {
                     <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/60" />
                     <input
                       type="date"
-                      className="w-full pl-10 pr-4 py-3 bg-white/20 border border-white/30 rounded-md text-white placeholder-white/50 focus:border-primary focus:outline-none transition-colors"
+                      className="w-full pl-10 pr-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/50 focus:border-primary focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -147,7 +147,7 @@ const HeroSection = () => {
                     <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/60" />
                     <input
                       type="date"
-                      className="w-full pl-10 pr-4 py-3 bg-white/20 border border-white/30 rounded-md text-white placeholder-white/50 focus:border-primary focus:outline-none transition-colors"
+                      className="w-full pl-10 pr-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/50 focus:border-primary focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -156,7 +156,7 @@ const HeroSection = () => {
                   <label className="text-sm font-medium text-white/80">Số khách</label>
                   <div className="relative">
                     <Users className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/60" />
-                    <select className="w-full pl-10 pr-4 py-3 bg-white/20 border border-white/30 rounded-md text-white focus:border-primary focus:outline-none appearance-none transition-colors">
+                    <select className="w-full pl-10 pr-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white focus:border-primary focus:outline-none appearance-none transition-colors">
                       <option value="1" className="bg-gray-800">1 khách</option>
                       <option value="2" className="bg-gray-800">2 khách</option>
                       <option value="3" className="bg-gray-800">3 khách</option>

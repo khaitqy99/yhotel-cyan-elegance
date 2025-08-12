@@ -99,7 +99,7 @@ const GallerySection = () => {
           {filteredImages.map((image, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-lg cursor-pointer aspect-[4/3]"
+              className="group relative overflow-hidden rounded-xl cursor-pointer aspect-[4/3]"
               onClick={() => openLightbox(index)}
             >
               <img

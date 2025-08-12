@@ -114,7 +114,7 @@ const BlogSection = () => {
                       <span>{post.date}</span>
                     </div>
                   </div>
-                  <span className="text-xs bg-secondary px-2 py-1 rounded">
+                  <span className="text-xs bg-secondary px-2 py-1 rounded-lg">
                     {post.readTime}
                   </span>
                 </div>
