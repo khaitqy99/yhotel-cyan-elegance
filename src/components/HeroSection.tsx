@@ -37,13 +37,13 @@ const HeroSection = () => {
         aria-label="Y Hotel - Khách sạn sang trọng với kiến trúc hiện đại và cảnh quan tuyệt đẹp"
       />
       
-      {/* Gradient Overlay with Aurora Effect */}
+      {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-overlay" />
       <motion.div 
         className="absolute inset-0 bg-gradient-aurora animate-aurora"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.3 }}
-        transition={{ delay: 1, duration: 2 }}
+        animate={{ opacity: 0.6 }}
+        transition={{ delay: 2, duration: 3 }}
       />
 
       {/* Content */}
@@ -57,10 +57,10 @@ const HeroSection = () => {
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6">
               <TextShimmer>Trải Nghiệm Sang Trọng</TextShimmer>
               <motion.span 
-                className="block text-gradient-hero bg-gradient-to-r from-primary-light to-primary bg-clip-text text-transparent animate-text-glow"
-                initial={{ opacity: 0, scale: 0.9 }}
+                className="block text-gradient-hero bg-gradient-to-r from-primary-light to-primary bg-clip-text text-transparent"
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.8, duration: 0.8 }}
+                transition={{ delay: 0.8, duration: 1 }}
               >
                 Tại Y Hotel
               </motion.span>
@@ -86,7 +86,7 @@ const HeroSection = () => {
             <ShimmerButton 
               variant="hero" 
               size="lg" 
-              className="text-lg px-8 py-6 hover:scale-105 transition-transform duration-300"
+              className="text-lg px-8 py-6 hover:scale-[1.02] transition-transform duration-300"
             >
               Khám Phá Phòng
             </ShimmerButton>

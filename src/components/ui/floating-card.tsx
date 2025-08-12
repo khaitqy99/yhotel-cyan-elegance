@@ -28,17 +28,17 @@ export function FloatingCard({
       animate={{ opacity: 1, x: 0, y: 0 }}
       transition={{
         delay,
-        duration: 0.6,
+        duration: 0.8,
         ease: [0.25, 0.46, 0.45, 0.94]
       }}
       whileHover={{
-        y: -5,
-        transition: { duration: 0.3 }
+        y: -2,
+        transition: { duration: 0.2 }
       }}
       className={cn(
-        "backdrop-blur-sm bg-background/80 border border-border/50",
-        "shadow-glass hover:shadow-glow transition-all duration-300",
-        "hover:border-primary/30",
+        "backdrop-blur-sm bg-background/90 border border-border/30",
+        "shadow-card hover:shadow-hover transition-all duration-300",
+        "hover:border-primary/20",
         className
       )}
     >

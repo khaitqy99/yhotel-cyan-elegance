@@ -21,8 +21,7 @@ export function TextShimmer({
   return (
     <span
       className={cn(
-        "bg-gradient-to-r from-primary via-gold to-primary bg-clip-text text-transparent",
-        speedClass,
+        "bg-gradient-to-r from-primary via-primary-light to-primary bg-clip-text text-transparent",
         className
       )}
     >

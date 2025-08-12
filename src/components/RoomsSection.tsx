@@ -80,7 +80,7 @@ const RoomsSection = () => {
               viewport={{ once: true }}
             >
               <GradientBorder 
-                containerClassName={`relative ${room.popular ? 'animate-pulse-glow' : ''}`}
+                containerClassName={`relative`}
               >
                 <FloatingCard 
                   className={`group overflow-hidden h-full ${room.popular ? 'ring-2 ring-primary' : ''}`}
@@ -89,17 +89,16 @@ const RoomsSection = () => {
                   {room.popular && (
                     <motion.div 
                       className="absolute top-4 left-4 z-10"
-                      initial={{ scale: 0, rotate: -180 }}
+                      initial={{ scale: 0.8, rotate: -10 }}
                       whileInView={{ scale: 1, rotate: 0 }}
                       transition={{ 
-                        duration: 0.5, 
+                        duration: 0.4, 
                         delay: 0.3 + (index * 0.2),
-                        type: "spring",
-                        stiffness: 200
+                        ease: "easeOut"
                       }}
                       viewport={{ once: true }}
                     >
-                      <Badge className="bg-gold text-gold-foreground animate-shimmer">
+                      <Badge className="bg-gold text-gold-foreground">
                         Phổ Biến
                       </Badge>
                     </motion.div>
@@ -111,8 +110,8 @@ const RoomsSection = () => {
                       src={room.image}
                       alt={`Phòng ${room.name} tại Y Hotel - ${room.size} với view đẹp và tiện nghi cao cấp`}
                       className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                     
@@ -200,8 +199,7 @@ const RoomsSection = () => {
                           key={idx} 
                           className="p-2 bg-secondary rounded-lg text-muted-foreground hover:bg-primary/10 transition-colors"
                           whileHover={{ 
-                            scale: 1.1,
-                            backgroundColor: "hsl(var(--primary) / 0.1)"
+                            scale: 1.05
                           }}
                           transition={{ duration: 0.2 }}
                         >
@@ -218,7 +216,7 @@ const RoomsSection = () => {
                       transition={{ duration: 0.5, delay: 0.9 + (index * 0.1) }}
                       viewport={{ once: true }}
                     >
-                      <Button variant="outline" size="sm" className="flex-1 hover:shadow-glow transition-all">
+                      <Button variant="outline" size="sm" className="flex-1 hover:shadow-card transition-all">
                         Xem Chi Tiết
                       </Button>
                       <ShimmerButton variant="luxury" size="sm" className="flex-1">

@@ -15,18 +15,13 @@ export function ShimmerButton({
   return (
     <Button
       className={cn(
-        "relative overflow-hidden bg-gradient-to-r from-primary to-primary-dark",
-        "before:absolute before:inset-0 before:bg-gradient-shimmer before:opacity-0",
-        "hover:before:opacity-100 before:transition-opacity before:duration-500",
-        "hover:shadow-glow transition-all duration-300",
+        "relative overflow-hidden",
+        "hover:shadow-hover transition-all duration-500",
         className
       )}
       {...props}
     >
-      <div className="relative z-10">
-        {children}
-      </div>
-      <div className="absolute inset-0 bg-gradient-shimmer opacity-0 hover:opacity-100 transition-opacity duration-500 hover:animate-shimmer" />
+      {children}
     </Button>
   );
 }

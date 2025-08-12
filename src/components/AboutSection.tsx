@@ -40,7 +40,7 @@ const AboutSection = () => {
   return (
     <section id="about" className="section-padding bg-gradient-section relative overflow-hidden">
       {/* Background Aurora Effect */}
-      <div className="absolute inset-0 bg-gradient-aurora animate-aurora opacity-20" />
+      <div className="absolute inset-0 bg-gradient-aurora animate-aurora opacity-30" />
       
       <div className="container-luxury relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -96,14 +96,13 @@ const AboutSection = () => {
               {stats.map((stat, index) => (
                 <GradientBorder key={index}>
                   <motion.div 
-                    className="text-center p-4 bg-white/80 backdrop-blur-sm rounded-lg h-full"
-                    initial={{ scale: 0 }}
+                    className="text-center p-4 bg-white/90 backdrop-blur-sm rounded-lg h-full"
+                    initial={{ scale: 0.9 }}
                     whileInView={{ scale: 1 }}
                     transition={{ 
-                      duration: 0.6, 
+                      duration: 0.5, 
                       delay: 0.8 + (index * 0.1),
-                      type: "spring",
-                      stiffness: 200
+                      ease: "easeOut"
                     }}
                     viewport={{ once: true }}
                   >
@@ -143,8 +142,7 @@ const AboutSection = () => {
                         <motion.div 
                           className="p-3 bg-gradient-primary rounded-lg text-primary-foreground"
                           whileHover={{ 
-                            scale: 1.1,
-                            boxShadow: "0 0 20px hsl(var(--primary) / 0.5)"
+                            scale: 1.05
                           }}
                           transition={{ duration: 0.2 }}
                         >
@@ -199,13 +197,12 @@ const AboutSection = () => {
                   <div className="text-center">
                     <motion.div 
                       className="text-3xl font-display font-bold text-gradient mb-2"
-                      initial={{ scale: 0 }}
+                      initial={{ scale: 0.8 }}
                       whileInView={{ scale: 1 }}
                       transition={{ 
-                        duration: 0.6, 
+                        duration: 0.5, 
                         delay: 1.4,
-                        type: "spring",
-                        stiffness: 200
+                        ease: "easeOut"
                       }}
                       viewport={{ once: true }}
                     >
