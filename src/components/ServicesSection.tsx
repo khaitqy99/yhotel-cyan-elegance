@@ -1,6 +1,8 @@
+"use client";
+
 import { Wifi, Car, Coffee, Dumbbell, Utensils, Waves } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+import { Marquee } from "@/registry/magicui/marquee";
 
 const ServicesSection = () => {
   const services = [
@@ -36,44 +38,59 @@ const ServicesSection = () => {
     }
   ];
 
+  const ServiceCard = ({
+    icon: Icon,
+    title,
+    description,
+  }: {
+    icon: React.ElementType;
+    title: string;
+    description: string;
+  }) => {
+    return (
+      <figure
+        className={cn(
+          "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+          // light styles
+          "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+          // dark styles
+          "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
+        )}
+      >
+        <div className="flex flex-col items-center text-center">
+          <div className="w-16 h-16 mb-4 bg-gradient-to-br from-primary to-primary/60 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <Icon className="w-8 h-8 text-primary-foreground" />
+          </div>
+          <figcaption className="text-sm font-medium dark:text-white mb-2">
+            {title}
+          </figcaption>
+          <blockquote className="text-xs text-muted-foreground">{description}</blockquote>
+        </div>
+      </figure>
+    );
+  };
+
   return (
     <section id="services" className="py-20 bg-gradient-subtle">
       <div className="container-luxury">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-gradient mb-6">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-black mb-6">
             Dịch Vụ Tiện Ích
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Trải nghiệm dịch vụ 5 sao với đầy đủ tiện nghi hiện đại
           </p>
         </div>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="relative w-full flex flex-col items-center justify-center overflow-hidden">
+        <Marquee pauseOnHover className="[--duration:20s]">
           {services.map((service, index) => (
-            <Card 
-              key={index}
-              className="service-card group cursor-pointer border-0 bg-background/60 backdrop-blur-sm hover:bg-background/80 transition-all duration-500"
-            >
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-primary to-primary/60 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <service.icon className="w-8 h-8 text-primary-foreground" />
-                </div>
-                <h3 className="text-xl font-semibold mb-4 text-foreground">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {service.description}
-                </p>
-              </CardContent>
-            </Card>
+            <ServiceCard key={index} {...service} />
           ))}
-        </div>
-
-        <div className="text-center mt-16">
-          <Button variant="luxury" size="lg" className="text-lg px-8 py-3">
-            Xem Tất Cả Dịch Vụ
-          </Button>
-        </div>
+        </Marquee>
+        <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"></div>
+        <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div>
       </div>
     </section>
   );

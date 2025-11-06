@@ -219,7 +219,8 @@ Sophisticated cyan gradients with elegant typography and smooth animations
 
   /* Animation Classes */
   .fade-in {
-    @apply opacity-0 translate-y-4 transition-all duration-700 ease-out;
+    @apply opacity-0 translate-y-4 ease-out;
+    transition: all 400ms ease-out;
   }
 
   .fade-in.animate {
@@ -227,16 +228,19 @@ Sophisticated cyan gradients with elegant typography and smooth animations
   }
 
   .parallax-element {
-    transition: transform 0.1s linear;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
   }
 
   /* Hover Effects */
   .hover-lift {
-    @apply transition-transform duration-300 hover:-translate-y-1 hover:shadow-hover;
+    @apply transition-transform duration-200 hover:-translate-y-1 hover:shadow-hover;
   }
 
   .hover-glow {
-    @apply transition-all duration-300 hover:shadow-luxury;
+    @apply transition-all duration-200 hover:shadow-luxury;
   }
 
   /* Layout Utilities */
@@ -259,5 +263,15 @@ Sophisticated cyan gradients with elegant typography and smooth animations
 
   .bg-section-gradient {
     background: var(--gradient-section);
+  }
+
+  /* Scrollbar Hide */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }

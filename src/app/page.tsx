@@ -5,11 +5,10 @@ import RoomsSection from "@/components/RoomsSection";
 import ServicesSection from "@/components/ServicesSection";
 import GallerySection from "@/components/GallerySection";
 import BlogSection from "@/components/BlogSection";
-import BookingSection from "@/components/BookingSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
-const Index = () => {
+export default function Home() {
   return (
     <div className="min-h-screen bg-luxury-gradient">
       <Navigation />
@@ -20,12 +19,10 @@ const Index = () => {
         <ServicesSection />
         <GallerySection />
         <BlogSection />
-        <BookingSection />
         <ContactSection />
       </main>
       <Footer />
     </div>
   );
-};
+}
 
-export default Index;

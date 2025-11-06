@@ -3,10 +3,10 @@ import type { Config } from "tailwindcss";
 export default {
 	darkMode: ["class"],
 	content: [
-		"./pages/**/*.{ts,tsx}",
-		"./components/**/*.{ts,tsx}",
-		"./app/**/*.{ts,tsx}",
-		"./src/**/*.{ts,tsx}",
+		"./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+		"./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+		"./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+		"./src/**/*.{js,ts,jsx,tsx,mdx}",
 	],
 	prefix: "",
 	theme: {
@@ -16,6 +16,14 @@ export default {
 			screens: {
 				'2xl': '1400px'
 			}
+		},
+		screens: {
+			'xs': '475px',
+			'sm': '640px',
+			'md': '768px',
+			'lg': '1024px',
+			'xl': '1280px',
+			'2xl': '1536px',
 		},
 		extend: {
 			fontFamily: {
@@ -91,6 +99,14 @@ export default {
 				xl: 'var(--radius-xl)'
 			},
 			keyframes: {
+				'marquee': {
+					from: { transform: 'translateX(0)' },
+					to: { transform: 'translateX(calc(-100% - var(--gap)))' }
+				},
+				'marquee-vertical': {
+					from: { transform: 'translateY(0)' },
+					to: { transform: 'translateY(calc(-100% - var(--gap)))' }
+				},
 				'accordion-down': {
 					from: { height: '0', opacity: '0' },
 					to: { height: 'var(--radix-accordion-content-height)', opacity: '1' }
@@ -171,18 +187,20 @@ export default {
 				}
 			},
 			animation: {
-				'accordion-down': 'accordion-down 0.3s ease-out',
-				'accordion-up': 'accordion-up 0.3s ease-out',
-				'fade-up': 'fade-up 0.6s ease-out',
-				'fade-in': 'fade-in 0.5s ease-out',
-				'slide-in-right': 'slide-in-right 0.6s ease-out',
-				'float': 'float 3s ease-in-out infinite',
-				'glow': 'glow 2s ease-in-out infinite',
-				'shimmer': 'shimmer 3s linear infinite',
-				'aurora': 'aurora 12s ease-in-out infinite',
-				'text-glow': 'text-glow 4s ease-in-out infinite',
-				'pulse-glow': 'pulse-glow 4s ease-in-out infinite',
-				'gradient-shift': 'gradient-shift 6s ease-in-out infinite'
+				'marquee': 'marquee var(--duration) linear infinite',
+				'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
+				'accordion-down': 'accordion-down 0.2s ease-out',
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-up': 'fade-up 0.4s ease-out',
+				'fade-in': 'fade-in 0.3s ease-out',
+				'slide-in-right': 'slide-in-right 0.4s ease-out',
+				'float': 'float 2.5s ease-in-out infinite',
+				'glow': 'glow 1.5s ease-in-out infinite',
+				'shimmer': 'shimmer 2s linear infinite',
+				'aurora': 'aurora 10s ease-in-out infinite',
+				'text-glow': 'text-glow 3s ease-in-out infinite',
+				'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
+				'gradient-shift': 'gradient-shift 5s ease-in-out infinite'
 			}
 		}
 	},

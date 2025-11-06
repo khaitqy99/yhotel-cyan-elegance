@@ -37,10 +37,10 @@ const ContactSection = () => {
       <div className="container-luxury">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
-            Liên Hệ <span className="text-gradient">Với Chúng Tôi</span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground mb-6">
+            Liên Hệ <span className="text-black">Với Chúng Tôi</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base text-muted-foreground max-w-3xl mx-auto">
             Đội ngũ chuyên viên của Y Hotel luôn sẵn sàng hỗ trợ và tư vấn để đem đến 
             trải nghiệm hoàn hảo nhất cho quý khách.
           </p>
@@ -81,7 +81,7 @@ const ContactSection = () => {
           <div className="lg:col-span-2">
             <Card className="shadow-luxury">
               <CardHeader>
-                <CardTitle className="text-2xl font-display text-foreground">
+                <CardTitle className="text-xl font-display text-foreground">
                   Gửi Tin Nhắn
                 </CardTitle>
                 <p className="text-muted-foreground">
@@ -157,23 +157,17 @@ const ContactSection = () => {
 
         {/* Map Section */}
         <Card className="mt-12 overflow-hidden shadow-luxury">
-          <div className="aspect-video bg-muted relative">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center space-y-4">
-                <MapPin className="w-12 h-12 text-primary mx-auto" />
-                <div>
-                  <h3 className="text-xl font-display font-semibold text-foreground mb-2">
-                    Vị Trí Y Hotel
-                  </h3>
-                  <p className="text-muted-foreground">
-                    123 Đường ABC, Quận 1, Thành Phố Hồ Chí Minh
-                  </p>
-                  <Button variant="outline" className="mt-4">
-                    Xem Bản Đồ Chi Tiết
-                  </Button>
-                </div>
-              </div>
-            </div>
+          <div className="aspect-video w-full">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.6521218376342!2d105.784017352464!3d10.04553828177773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a062a84ee18515%3A0xa19d981335e455ef!2zNjAtNjItNjQgTMO9IEjhu5NuZyBUaGFuaCwgQ8OhaSBLaOG6vywgTmluaCBLaeG7gXUsIEPhuqduIFRoxqEsIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1762410574497!5m2!1sen!2s"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-full"
+            />
           </div>
         </Card>
       </div>

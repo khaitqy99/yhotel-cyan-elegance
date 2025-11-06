@@ -1,6 +1,7 @@
 import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 
 const Footer = () => {
   const footerLinks = {
@@ -45,9 +46,15 @@ const Footer = () => {
           {/* Brand & Contact */}
           <div className="lg:col-span-1 space-y-6">
             <div>
-              <h2 className="text-3xl font-display font-bold text-gradient mb-4">
-                Y Hotel
-              </h2>
+              <Link href="/" className="inline-block mb-4">
+                <Image
+                  src="/logo.png"
+                  alt="Y Hotel Logo"
+                  width={140}
+                  height={50}
+                  className="h-10 w-auto md:h-12"
+                />
+              </Link>
               <p className="text-background/80 leading-relaxed">
                 Khách sạn sang trọng hàng đầu với tiêu chuẩn dịch vụ quốc tế, 
                 mang đến trải nghiệm nghỉ dưỡng đẳng cấp.
@@ -109,34 +116,11 @@ const Footer = () => {
           ))}
         </div>
 
-        {/* Newsletter Section */}
-        <div className="border-t border-background/20 py-8">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-xl font-display font-semibold text-background mb-2">
-                Đăng Ký Nhận Tin
-              </h3>
-              <p className="text-background/80 text-sm">
-                Nhận thông tin về ưu đãi đặc biệt và sự kiện mới nhất từ Y Hotel.
-              </p>
-            </div>
-            <div className="flex space-x-2">
-              <Input
-                placeholder="Nhập email của bạn"
-                className="bg-background/10 border-background/30 text-background placeholder:text-background/50"
-              />
-              <Button variant="luxury">
-                Đăng Ký
-              </Button>
-            </div>
-          </div>
-        </div>
-
         {/* Bottom Bar */}
         <div className="border-t border-background/20 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-background/80 text-sm">
-              © 2024 Y Hotel. Tất cả quyền được bảo lưu.
+              © 2025 Y Hotel. Tất cả quyền được bảo lưu.
             </div>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-background/80 hover:text-primary transition-colors">

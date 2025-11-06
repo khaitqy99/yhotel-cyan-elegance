@@ -1,9 +1,10 @@
+"use client";
+
 import { Award, Users, Globe, Heart } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { FloatingCard } from "@/components/ui/floating-card";
 import { GradientBorder } from "@/components/ui/gradient-border";
-import { TextShimmer } from "@/components/ui/text-shimmer";
 import lobbyImage from "@/assets/lobby.jpg";
 
 const AboutSection = () => {
@@ -49,36 +50,36 @@ const AboutSection = () => {
             className="space-y-8"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             <div className="space-y-4">
               <motion.h2 
-                className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground"
+                className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+                viewport={{ once: true, margin: "-100px" }}
               >
-                Về <TextShimmer>Y Hotel</TextShimmer>
+                Về Y Hotel
               </motion.h2>
               <motion.p 
-                className="text-lg text-muted-foreground leading-relaxed text-justify"
+                className="text-base text-muted-foreground leading-relaxed text-justify"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+                viewport={{ once: true, margin: "-100px" }}
               >
                 Được thành lập từ năm 2008, Y Hotel đã trở thành biểu tượng của sự sang trọng và 
                 đẳng cấp trong ngành khách sạn. Chúng tôi cam kết mang đến những trải nghiệm 
                 nghỉ dưỡng hoàn hảo với tiêu chuẩn dịch vụ quốc tế.
               </motion.p>
               <motion.p 
-                className="text-lg text-muted-foreground leading-relaxed text-justify"
+                className="text-base text-muted-foreground leading-relaxed text-justify"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.25 }}
+                viewport={{ once: true, margin: "-100px" }}
               >
                 Với kiến trúc hiện đại kết hợp nét truyền thống, Y Hotel không chỉ là nơi nghỉ ngơi 
                 mà còn là điểm đến lý tưởng cho các sự kiện quan trọng và những kỷ niệm đáng nhớ.
@@ -90,8 +91,8 @@ const AboutSection = () => {
               className="grid grid-cols-2 md:grid-cols-4 gap-6"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              viewport={{ once: true, margin: "-100px" }}
             >
               {stats.map((stat, index) => (
                 <GradientBorder key={index}>
@@ -100,13 +101,13 @@ const AboutSection = () => {
                     initial={{ scale: 0.9 }}
                     whileInView={{ scale: 1 }}
                     transition={{ 
-                      duration: 0.5, 
-                      delay: 0.8 + (index * 0.1),
+                      duration: 0.3, 
+                      delay: 0.4 + (index * 0.05),
                       ease: "easeOut"
                     }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, margin: "-50px" }}
                   >
-                    <div className="text-2xl md:text-3xl font-display font-bold text-gradient mb-2">
+                    <div className="text-xl md:text-2xl font-display font-bold text-gradient mb-2">
                       {stat.number}
                     </div>
                     <div className="text-sm text-muted-foreground">
@@ -122,19 +123,19 @@ const AboutSection = () => {
               className="grid md:grid-cols-2 gap-6"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.4 }}
+              viewport={{ once: true, margin: "-100px" }}
             >
               {features.map((feature, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 1 + (index * 0.1) }}
-                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.5 + (index * 0.05) }}
+                  viewport={{ once: true, margin: "-50px" }}
                 >
                   <FloatingCard 
-                    className="border-border/50 h-full"
+                    className="border-border/50 h-full rounded-xl"
                     delay={index * 0.1}
                   >
                     <CardContent className="p-6">
@@ -169,19 +170,19 @@ const AboutSection = () => {
             className="relative"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true, margin: "-100px" }}
           >
             <GradientBorder containerClassName="group">
               <div className="relative overflow-hidden rounded-xl shadow-luxury">
                 <motion.img
-                  src={lobbyImage}
+                  src={typeof lobbyImage === 'string' ? lobbyImage : lobbyImage.src}
                   alt="Sảnh khách sang trọng tại Y Hotel với thiết kế hiện đại và không gian rộng rãi"
-                  className="w-full h-[600px] object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-[600px] object-cover group-hover:scale-105 transition-transform duration-500"
                   initial={{ scale: 1.1 }}
                   whileInView={{ scale: 1 }}
-                  transition={{ duration: 1 }}
-                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true, margin: "-100px" }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
@@ -190,21 +191,21 @@ const AboutSection = () => {
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.2 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.6 }}
+                viewport={{ once: true, margin: "-50px" }}
               >
-                <FloatingCard className="absolute -bottom-6 -left-6 p-6 bg-white shadow-luxury">
+                <FloatingCard className="absolute -bottom-6 -left-6 p-6 bg-white shadow-luxury rounded-xl">
                   <div className="text-center">
                     <motion.div 
-                      className="text-3xl font-display font-bold text-gradient mb-2"
+                      className="text-2xl font-display font-bold text-gradient mb-2"
                       initial={{ scale: 0.8 }}
                       whileInView={{ scale: 1 }}
                       transition={{ 
-                        duration: 0.5, 
-                        delay: 1.4,
+                        duration: 0.3, 
+                        delay: 0.7,
                         ease: "easeOut"
                       }}
-                      viewport={{ once: true }}
+                      viewport={{ once: true, margin: "-50px" }}
                     >
                       98%
                     </motion.div>

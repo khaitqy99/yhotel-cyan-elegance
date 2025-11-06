@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -38,7 +40,7 @@ export function FloatingCard({
       className={cn(
         "backdrop-blur-sm bg-background/90 border border-border/30",
         "shadow-card hover:shadow-hover transition-all duration-300",
-        "hover:border-primary/20",
+        "hover:border-primary/20 rounded-xl",
         className
       )}
     >

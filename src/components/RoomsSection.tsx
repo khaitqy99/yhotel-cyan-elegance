@@ -1,53 +1,18 @@
+"use client";
+
 import { Bed, Wifi, Car, Coffee, Bath, Users } from "lucide-react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { FloatingCard } from "@/components/ui/floating-card";
 import { GradientBorder } from "@/components/ui/gradient-border";
-import { TextShimmer } from "@/components/ui/text-shimmer";
-import luxuryRoomImage from "@/assets/luxury-room.jpg";
+import { rooms } from "@/data/rooms";
 
 const RoomsSection = () => {
-  const rooms = [
-    {
-      id: 1,
-      name: "Superior Room",
-      image: luxuryRoomImage,
-      price: "2,500,000",
-      originalPrice: "3,000,000",
-      size: "35m²",
-      guests: 2,
-      features: ["Giường King Size", "View thành phố", "Phòng tắm riêng", "WiFi miễn phí"],
-      amenities: [Wifi, Coffee, Bath, Car],
-      popular: false
-    },
-    {
-      id: 2,
-      name: "Deluxe Ocean View",
-      image: luxuryRoomImage,
-      price: "3,800,000",
-      originalPrice: "4,500,000",
-      size: "45m²",
-      guests: 2,
-      features: ["View biển tuyệt đẹp", "Ban công riêng", "Minibar", "Dịch vụ 24h"],
-      amenities: [Wifi, Coffee, Bath, Car],
-      popular: true
-    },
-    {
-      id: 3,
-      name: "Presidential Suite",
-      image: luxuryRoomImage,
-      price: "8,500,000",
-      originalPrice: "10,000,000",
-      size: "120m²",
-      guests: 4,
-      features: ["Phòng khách riêng", "Bếp mini", "2 phòng ngủ", "Butler service"],
-      amenities: [Wifi, Coffee, Bath, Car],
-      popular: false
-    }
-  ];
+  // Show only first 4 rooms on homepage
+  const displayRooms = rooms.slice(0, 4);
 
   return (
     <section id="rooms" className="section-padding bg-gradient-subtle">
@@ -57,71 +22,54 @@ const RoomsSection = () => {
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          viewport={{ once: true, margin: "-100px" }}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
-            Phòng & <TextShimmer>Suites</TextShimmer>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground mb-6">
+            Phòng & Suites
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base text-muted-foreground max-w-3xl mx-auto">
             Khám phá không gian nghỉ ngơi đẳng cấp với thiết kế hiện đại, tiện nghi cao cấp 
             và dịch vụ tận tâm. Mỗi phòng đều được chăm chút tỉ mỉ để mang đến sự thoải mái tối đa.
           </p>
         </motion.div>
 
         {/* Room Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {rooms.map((room, index) => (
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6">
+          {displayRooms.map((room, index) => (
             <motion.div
               key={room.id}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              viewport={{ once: true, margin: "-100px" }}
             >
-              <GradientBorder 
-                containerClassName={`relative`}
-              >
-                <FloatingCard 
-                  className={`group overflow-hidden h-full ${room.popular ? 'ring-2 ring-primary' : ''}`}
-                  delay={index * 0.1}
+              <Link href={`/rooms/${room.id}`} className="block h-full">
+                <GradientBorder 
+                  containerClassName="relative h-full"
                 >
-                  {room.popular && (
-                    <motion.div 
-                      className="absolute top-4 left-4 z-10"
-                      initial={{ scale: 0.8, rotate: -10 }}
-                      whileInView={{ scale: 1, rotate: 0 }}
-                      transition={{ 
-                        duration: 0.4, 
-                        delay: 0.3 + (index * 0.2),
-                        ease: "easeOut"
-                      }}
-                      viewport={{ once: true }}
-                    >
-                      <Badge className="bg-gold text-gold-foreground">
-                        Phổ Biến
-                      </Badge>
-                    </motion.div>
-                  )}
-                  
+                  <FloatingCard 
+                    className="group overflow-hidden h-full bg-background rounded-xl border-0 backdrop-blur-none shadow-none hover:shadow-lg transition-shadow cursor-pointer"
+                    delay={index * 0.1}
+                  >
                   {/* Image */}
                   <div className="relative overflow-hidden">
                     <motion.img
                       src={room.image}
                       alt={`Phòng ${room.name} tại Y Hotel - ${room.size} với view đẹp và tiện nghi cao cấp`}
-                      className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="w-full h-40 md:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                       whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.2 }}
+                      transition={{ duration: 0.15 }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                     
-                    {/* Quick Info Overlay */}
+                    {/* Quick Info Overlay - Hidden on mobile */}
                     <motion.div 
-                      className="absolute bottom-4 left-4 text-white"
+                      className="absolute bottom-2 left-2 md:bottom-4 md:left-4 text-white hidden md:block"
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: 0.5 + (index * 0.1) }}
-                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: 0.3 + (index * 0.05) }}
+                      viewport={{ once: true, margin: "-50px" }}
                     >
                       <div className="flex items-center space-x-4 text-sm">
                         <div className="flex items-center space-x-1">
@@ -134,40 +82,45 @@ const RoomsSection = () => {
                         </div>
                       </div>
                     </motion.div>
+
+                    {/* Mobile: Simple info overlay */}
+                    <div className="absolute bottom-1 left-1 md:hidden text-white">
+                      <div className="flex items-center space-x-2 text-xs">
+                        <Users className="w-3 h-3" />
+                        <span>{room.guests}</span>
+                      </div>
+                    </div>
                   </div>
 
-                  <CardContent className="p-6">
+                  <CardContent className="p-3 md:p-6">
                     {/* Room Name & Price */}
                     <motion.div 
-                      className="mb-4"
+                      className="mb-2 md:mb-4"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.6 + (index * 0.1) }}
-                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: 0.35 + (index * 0.05) }}
+                      viewport={{ once: true, margin: "-50px" }}
                     >
-                      <h3 className="text-xl font-display font-semibold text-foreground mb-2">
+                      <h3 className="text-sm md:text-lg font-display font-semibold text-foreground mb-1 md:mb-2 line-clamp-1 md:line-clamp-2 overflow-hidden text-ellipsis">
                         {room.name}
                       </h3>
-                      <div className="flex items-baseline space-x-2">
-                        <span className="text-2xl font-bold text-primary">
+                      <div className="flex items-baseline space-x-1 md:space-x-2">
+                        <span className="text-base md:text-xl font-bold text-primary">
                           {room.price}₫
                         </span>
-                        <span className="text-sm text-muted-foreground line-through">
-                          {room.originalPrice}₫
-                        </span>
-                        <span className="text-sm text-muted-foreground">
+                        <span className="text-xs md:text-sm text-muted-foreground">
                           /đêm
                         </span>
                       </div>
                     </motion.div>
 
-                    {/* Features */}
+                    {/* Features - Hidden on mobile */}
                     <motion.div 
-                      className="mb-4"
+                      className="mb-2 md:mb-4 hidden md:block"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.7 + (index * 0.1) }}
-                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: 0.4 + (index * 0.05) }}
+                      viewport={{ once: true, margin: "-50px" }}
                     >
                       <ul className="space-y-1">
                         {room.features.slice(0, 3).map((feature, idx) => (
@@ -176,8 +129,8 @@ const RoomsSection = () => {
                             className="text-sm text-muted-foreground flex items-center"
                             initial={{ opacity: 0, x: -10 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.3, delay: 0.8 + (index * 0.1) + (idx * 0.1) }}
-                            viewport={{ once: true }}
+                            transition={{ duration: 0.2, delay: 0.45 + (index * 0.05) + (idx * 0.05) }}
+                            viewport={{ once: true, margin: "-30px" }}
                           >
                             <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2" />
                             {feature}
@@ -186,46 +139,25 @@ const RoomsSection = () => {
                       </ul>
                     </motion.div>
 
-                    {/* Amenities */}
-                    <motion.div 
-                      className="flex items-center space-x-3 mb-6"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.8 + (index * 0.1) }}
-                      viewport={{ once: true }}
-                    >
-                      {room.amenities.map((Icon, idx) => (
-                        <motion.div 
-                          key={idx} 
-                          className="p-2 bg-secondary rounded-lg text-muted-foreground hover:bg-primary/10 transition-colors"
-                          whileHover={{ 
-                            scale: 1.05
-                          }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          <Icon className="w-4 h-4" />
-                        </motion.div>
-                      ))}
-                    </motion.div>
-
                     {/* Actions */}
                     <motion.div 
-                      className="flex space-x-2"
+                      className="flex space-x-1 md:space-x-2"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.9 + (index * 0.1) }}
-                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: 0.5 + (index * 0.05) }}
+                      viewport={{ once: true, margin: "-50px" }}
+                      onClick={(e) => e.stopPropagation()}
                     >
-                      <Button variant="outline" size="sm" className="flex-1 hover:shadow-card transition-all">
-                        Xem Chi Tiết
-                      </Button>
-                      <ShimmerButton variant="luxury" size="sm" className="flex-1">
-                        Đặt Ngay
-                      </ShimmerButton>
+                      <div className="flex-1">
+                        <ShimmerButton variant="luxury" size="sm" className="w-full text-xs md:text-sm px-2 md:px-4 py-1.5 md:py-2">
+                          Đặt Ngay
+                        </ShimmerButton>
+                      </div>
                     </motion.div>
                   </CardContent>
                 </FloatingCard>
               </GradientBorder>
+              </Link>
             </motion.div>
           ))}
         </div>
@@ -235,12 +167,14 @@ const RoomsSection = () => {
           className="text-center mt-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+          viewport={{ once: true, margin: "-100px" }}
         >
-          <ShimmerButton variant="luxury" size="lg" className="px-8">
-            Xem Tất Cả Phòng
-          </ShimmerButton>
+          <Link href="/rooms">
+            <ShimmerButton variant="luxury" size="lg" className="px-8">
+              Xem Tất Cả Phòng
+            </ShimmerButton>
+          </Link>
         </motion.div>
       </div>
     </section>
